@@ -11,15 +11,20 @@ do que texto longo copiado. Resposta que contradiz o seu próprio Dockerfile val
 ## Parte 1 · Dockerfile do portal
 
 1. Qual imagem base você usou e qual o tamanho final da imagem do portal (saída de `docker images`)?
+R: nginx:1.27-alpine. 21MB
 
 2. Em qual pasta do container o Nginx procura os arquivos do site? Mostre o comando que você usou para
    conferir que o `index.html` está lá dentro.
+R: "/usr/share/nginx/html/". `docker exec teste-portal ls -l /usr/share/nginx/html/`.
 
 ## Parte 2 · Docker Hub
 
 3. Nome completo da imagem publicada e link público do repositório no Docker Hub.
+R: Nome: "pedrolopes05/viaserra-portal:1.0-26174728". Link: "https://hub.docker.com/repository/docker/pedrolopes05/viaserra-portal/general"
 
 4. Se você mudar o HTML, quais comandos precisa rodar para que a versão nova chegue ao Docker Hub?
+R: "docker build -t pedrolopes05/viaserra-portal:1.0-26174728 ./portal" para recriar a imagem;
+   "docker push pedrolopes05/viaserra-portal:1.0-26174728" para enviar a nova versão ao repositório.
 
 ## Parte 3 · Página de manutenção
 
